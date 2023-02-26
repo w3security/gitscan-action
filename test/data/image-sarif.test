@@ -6,7 +6,7 @@
       "tool": {
         "driver": {
           "fullName": "GitScan Vulnerability Scanner",
-          "informationUri": "https://github.com/aquasecurity/gitscan",
+          "informationUri": "https://github.com/cvedb/gitscan",
           "name": "GitScan",
           "rules": [
             {
