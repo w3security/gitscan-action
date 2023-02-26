@@ -4,8 +4,8 @@ bats_load_library bats-assert
 bats_load_library bats-file
 
 @test "gitscan repo with securityCheck secret only" {
-  # gitscan repo --format json --output repo.test --security-checks=secret https://github.com/krol3/demo-gitscan/
-  run ./entrypoint.sh '-b json' '-h repo.test' '-s secret' '-a repo' '-j https://github.com/krol3/demo-gitscan/'
+  # gitscan repo --format json --output repo.test --security-checks=secret https://github.com/cyberoslab/demo-gitscan/
+  run ./entrypoint.sh '-b json' '-h repo.test' '-s secret' '-a repo' '-j https://github.com/cyberoslab/demo-gitscan/'
   run diff repo.test ./test/data/repo.test
   echo "$output"
   assert_files_equal repo.test ./test/data/repo.test
@@ -61,8 +61,8 @@ bats_load_library bats-file
 
 
 @test "gitscan image with gitscanIgnores option" {
-  # cat ./test/data/.gitscanignore1 ./test/data/.gitscanignore2 > ./gitscanignores ; gitscan image --severity CRITICAL  --output image-gitscanignores.test --ignorefile ./trivyignores knqyf263/vuln-image:1.2.3
-  run ./entrypoint.sh '-a image' '-i knqyf263/vuln-image:1.2.3' '-h image-trivyignores.test' '-g CRITICAL' '-t ./test/data/.gitscanignore1,./test/data/.gitscanignore2'
+  # cat ./test/data/.gitscanignore1 ./test/data/.gitscanignore2 > ./gitscanignores ; gitscan image --severity CRITICAL  --output image-gitscanignores.test --ignorefile ./gitscanignores knqyf263/vuln-image:1.2.3
+  run ./entrypoint.sh '-a image' '-i knqyf263/vuln-image:1.2.3' '-h image-gitscanignores.test' '-g CRITICAL' '-t ./test/data/.gitscanignore1,./test/data/.gitscanignore2'
   run diff image-gitscanignores.test ./test/data/image-gitscanignores.test
   echo "$output"
   assert_files_equal image-gitscanignores.test ./test/data/image-gitscanignores.test
