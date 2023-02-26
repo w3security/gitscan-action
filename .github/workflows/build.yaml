@@ -22,6 +22,6 @@ jobs:
 
       - name: Install GitScan
         run: |
-          curl -sfL https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/install.sh | sh -s -- -b /usr/local/bin v${{ env.TRIVY_VERSION }}
+          curl -sfL https://raw.githubusercontent.com/cvedb/gitscan/main/contrib/install.sh | sh -s -- -b /usr/local/bin v${{ env.TRIVY_VERSION }}
       - name: Test
         run: BATS_LIB_PATH=${{ env.BATS_LIB_PATH }} bats --recursive --timing .
