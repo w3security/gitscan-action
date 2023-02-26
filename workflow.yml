@@ -17,7 +17,7 @@ jobs:
           docker build -t docker.io/my-organization/my-app:${{ github.sha }} .
 
       - name: Run GitScan vulnerability scanner
-        uses: aquasecurity/gitscan-action@master
+        uses: w3security/gitscan-action@master
         with:
           image-ref: 'docker.io/my-organization/my-app:${{ github.sha }}'
           exit-code: '1'
